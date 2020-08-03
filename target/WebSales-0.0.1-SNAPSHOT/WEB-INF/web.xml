@@ -6,15 +6,15 @@
          version="3.1">
          <display-name>WebSales</display-name>
 
+
+
+
+
     <!--
-        sử dụng trong @Inject cần chuẩn bị 3 cái 
-        +cài thư viện weld-servlet trong pom.xml
-        +thêm beans.xml
-        +listen trong web.xml
+        Khi truy cập url thì nó sẽ lọc: nếu là url=/trang-chu -> nó sẽ apply giao diện decorators.web.jsp 
+        và nội dụng của web.jsp sẽ đc lấy qua controller
+        Trong TH url là api->không lấy giao diện
     -->
-    <listener>
-        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
-    </listener>
     <filter>
         <filter-name>sitemesh</filter-name>
         <filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
@@ -25,12 +25,23 @@
     </filter-mapping>
 
 
+	<!-- Check khi truy cập url của admin -->
+	<filter>
+        <filter-name>servletFilter</filter-name>
+        <filter-class>com.tvdinh.filter.AuthorizationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>servletFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+		
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
     <!--file này sẽ chạy lên đầu tiên index.jsp nó sẽ chuyển hướng tới trang chủ
     http://localhost:22430/WebserviceBH/trang-chu;jsessionid=11d15336acfaca71ca1778e19991
-    để mất jsessionid ta sử dụng session-config   -->
+    để mất jsessionid ta sử dụng session-config -->
     <session-config>
 		<tracking-mode>COOKIE</tracking-mode>
 	</session-config>

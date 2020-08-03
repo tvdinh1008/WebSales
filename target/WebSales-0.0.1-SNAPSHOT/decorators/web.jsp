@@ -20,7 +20,7 @@
 
 	<!-- Page Content -->
  	<div class="container">
-  
+  		<dec:body/>
  	</div>
   
  	<!-- footer -->

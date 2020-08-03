@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Trang chủ</title>
 </head>
 <body>
 	<div class="row">
@@ -20,7 +20,6 @@
 
       </div>
       <!-- /.col-lg-3 -->
-
       <div class="col-lg-9">
 
         <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
