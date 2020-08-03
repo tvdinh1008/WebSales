@@ -6,10 +6,13 @@
          version="3.1">
          <display-name>WebSales</display-name>
 
+
+
+
+
     <!--
         Khi truy cập url thì nó sẽ lọc: nếu là url=/trang-chu -> nó sẽ apply giao diện decorators.web.jsp 
         và nội dụng của web.jsp sẽ đc lấy qua controller
-        
         Trong TH url là api->không lấy giao diện
     -->
     <filter>
@@ -21,6 +24,17 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+
+	<!-- Check khi truy cập url của admin -->
+	<filter>
+        <filter-name>servletFilter</filter-name>
+        <filter-class>com.tvdinh.filter.AuthorizationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>servletFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+		
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

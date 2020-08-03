@@ -16,12 +16,23 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
+          <c:if test="${not empty CUSTOMERMODEL}">
+          	<li class="nav-item">
+            	<a class="nav-link" href="#">Welcome, ${CUSTOMERMODEL.username}</a>
+         	 </li>
+         	 <li class="nav-item">
+	            <a class="nav-link" href="<c:url value='/thoat?action=logout'/>">Thoát</a>
+	          </li>
+          </c:if>
+          <c:if test="${empty CUSTOMERMODEL}">
+          	  <li class="nav-item">
+            	<a class="nav-link" href="<c:url value='/dang-nhap?action=login'/>">Đăng nhập</a>
+          	  </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="<c:url value='/dang-ky?action=register'/>">Đăng ký</a>
+	          </li>
+          </c:if>
+          
           <li class="nav-item">
             <a class="nav-link" href="#">Contact</a>
           </li>
