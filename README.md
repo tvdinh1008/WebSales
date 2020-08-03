@@ -3,9 +3,15 @@
 FrontEnd
 + Sử dụng "sitemesh decorators"
   
+  Khi người dùng truy cập vào 1 url thì nó chia làm 3 loại
   
-
-
+  - Web: url=/ ->apply giao diện web. tương tự như admin
+  
+  - Admin: url=/admin -> apply giao diện admin trong file decorators->admin.jsp trong này sẽ là file parent
+  phần content của admin.jsp sẽ lấy qua controller
+  
+  - Api:có url=/api* thì không cần apply giao diện cho các url này
+  
 
 BackEnd
 + Sử dụng mô hình 3 tier architecture
