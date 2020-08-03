@@ -24,7 +24,7 @@ BackEnd
   
   - Authentication: đăng nhập với username, password kiểm tra xem trong database có tồn tại hay không
   
-  - Authorization: khi người dùng request vào 1 url có phần đầu là /admin thì nó sẽ kiểm tra xem người đó có quyền vào url đó hay không
+  - Authorization: khi người dùng request vào 1 url có phần đầu là /admin thì nó sẽ kiểm tra xem người đó có quyền vào url đó hay không.có 2 TH nếu chưa đăng nhập->yêu cầu đăng nhập. Nếu đã đăng nhập thì kiểm tra xem nó có quyền vào không? nếu không thì chuyển đến trang đăng nhập và thông báo
   
   - Khi đăng nhập ta sử dụng thêm: ResourceBundle trong java để lưu các message thông báo
   
