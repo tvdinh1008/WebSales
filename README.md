@@ -41,3 +41,15 @@ BackEnd
     cú pháp : ResourceBundle resourceBundle=ResourceBundle.getBundle("tên file");resourceBundle.getString("key");//lưu theo kiểu key-value
   
 + Sử dụng "weld" để hỗ trợ tầng trên gọi dịch vụ tầng dưới. Ví dụ bình thường ko sử dụng weld thì khi có 100000 request thì ở controller sẽ tạo 100000 đối tượng ->rất tốn tài nguyên hệ thống. Thay vì đó ta sử dụng weld để khi request tới controller nếu đối tượng đó chưa đc tạo thì nó sẽ tạo mới và lưu vào vùng container lần sau request tới thì nó sẽ không phải tạo mới
+
+
++ Cookie Là Gì
+  - Theo định nghĩa thì cookie là một mẩu thông tin nhỏ được lưu trừ trên trình duyệt người dùng. Đây là một file nhỏ được trình duyệt lưu trữ trên máy tính của bạn. Trên cùng một trình duyệt mỗi một domain khác nhau sẽ có một cookie khác nhau. Ở đây một domain giống như một khách sạn ở ví dụ trên.
+
+  - Bạn cũng cần lưu ý rằng khi bạn truy cập một domain trên nhiều tab khác nhau của cùng một trình duyệt thì trình duyệt này cũng chỉ sử dụng một file cookie duy nhất cho domain trên.
+
++ Session Là Gì
+  - Session là một tập tin nhỏ được lưu trữ trên server, mỗi một file session sẽ tương ứng với một file cookie.
+
+  - Mỗi một cookie sẽ thường tương ứng với một người dùng và bên trong từng file session này sẽ chứa các thông tin liên quan tới người dùng đó. Vừa rồi mình sử dụng từ thông thường là bởi vì một người dùng có thể sử dụng hai trình duyệt khác nhau như Firefox hay Chrome trên một máy để truy cập vào cùng một địa chỉ trang web. Lúc này sẽ có hai cookie trên hai trình duyệt (và do đó sẽ có 2 session được tạo ra trên server) cho cùng một người dùng.
+
