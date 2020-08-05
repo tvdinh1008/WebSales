@@ -18,7 +18,7 @@
           </li>
           <c:if test="${not empty CUSTOMERMODEL}">
           	<li class="nav-item">
-            	<a class="nav-link" href="#">Welcome, ${CUSTOMERMODEL.username}</a>
+            	<a class="nav-link" href="#">Welcome, ${CUSTOMERMODEL.name}</a>
          	 </li>
          	 <li class="nav-item">
 	            <a class="nav-link" href="<c:url value='/thoat?action=logout'/>">Thoát</a>

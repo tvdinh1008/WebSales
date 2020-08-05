@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,8 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.tvdinh.dao.impl.CustomerDAO;
+
 import com.tvdinh.model.CustomerModel;
+import com.tvdinh.service.ICustomerService;
+
 import com.tvdinh.utils.FormUtil;
 import com.tvdinh.utils.SessionUtil;
 
@@ -22,6 +25,9 @@ public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = -2921692510702300868L;
 	
 	ResourceBundle resourceBundle=ResourceBundle.getBundle("message");
+	
+	@Inject
+	private ICustomerService customerService;
 	
 	
 	@Override
@@ -41,7 +47,6 @@ public class HomeController extends HttpServlet {
 				request.setAttribute("message",resourceBundle.getString(message));
 				request.setAttribute("alert", alert);
 			}
-			
 			RequestDispatcher rd = request.getRequestDispatcher("/views/login.jsp");
 			rd.forward(request, response);
 		} else if (action != null && action.equals("register")) {
@@ -58,15 +63,14 @@ public class HomeController extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/trang-chu");
 
 		} else {
-
-			CustomerDAO cus = new CustomerDAO();
-			List<CustomerModel> list = cus.findAll();
-			request.setAttribute("listCus", list);
-
+			List<CustomerModel> list=customerService.findAll();
+			if(list!=null)
+			{
+				request.setAttribute("size", list.size());
+			}
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
 		}
-
 	}
 
 	@Override
@@ -77,16 +81,11 @@ public class HomeController extends HttpServlet {
 
 		String action = request.getParameter("action");
 		if (action != null && action.equals("login")) {
-			CustomerModel cus = null;
-			cus = FormUtil.tModel(CustomerModel.class, request);
-
-			// check xem có đúng ko
-			cus.setName("Trần Văn Định");
-			cus.setId(1l);
-			cus.setRoleid(2l);
-			cus.getRole().setCode("USER");
-
-			if (cus != null) {// getSession bắt buộc phải có vì nó request tới trang khác(khác với forward)
+			CustomerModel cus =FormUtil.tModel(CustomerModel.class, request);
+			cus=customerService.findByUserNameandPasswordAndStatus(cus.getUsername(), cus.getPassword(), 1);
+	
+			if (cus != null) {
+				// getSession bắt buộc phải có vì nó request tới trang khác(khác với forward)
 				// request.getSession().setAttribute("CUSTOMERMODEL", cus);
 				SessionUtil.getInstance().putValue(request, "CUSTOMERMODEL", cus);
 				if (cus.getRole().getCode().equals("USER")) {
