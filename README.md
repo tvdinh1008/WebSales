@@ -11,7 +11,11 @@ FrontEnd
   phần content của admin.jsp sẽ lấy qua controller
   
   - Api:có url=/api* thì không cần apply giao diện cho các url này
-  
+
++ Chú ý với thẻ scripts thì muốn sử dụng con thì cha của nó phải ở trên và link sẽ để ở thẻ <c:> để nó tự động điền:http://localhost:8080/"thư viện"
+
+ 	<link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all"/>
+	
 
 BackEnd
 + Sử dụng mô hình 3 tier architecture
