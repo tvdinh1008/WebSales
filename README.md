@@ -15,6 +15,8 @@ FrontEnd
 + Chú ý với thẻ scripts thì muốn sử dụng con thì cha của nó phải ở trên và link sẽ để ở thẻ <c:> để nó tự động điền:http://localhost:8080/"thư viện"
 
  	<link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all"/>
+
++ Phân trang: /admin-product?page=2&maxPageItem=20&sort=name,desc  : tứ là phân trang theo: mình đang đứng ở trang nào, số sản phẩm hiện thị trên 1 trang, sắp xếp theo chiều nào,trường nào
 	
 
 BackEnd
