@@ -1,7 +1,6 @@
 package com.tvdinh.controller.web;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.ResourceBundle;
 
 import javax.inject.Inject;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.tvdinh.model.CustomerModel;
 import com.tvdinh.service.ICustomerService;
-
 import com.tvdinh.utils.FormUtil;
 import com.tvdinh.utils.SessionUtil;
 
@@ -63,11 +61,7 @@ public class HomeController extends HttpServlet {
 			response.sendRedirect(request.getContextPath() + "/trang-chu");
 
 		} else {
-			List<CustomerModel> list=customerService.findAll();
-			if(list!=null)
-			{
-				request.setAttribute("size", list.size());
-			}
+			
 			RequestDispatcher rd = request.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(request, response);
 		}
@@ -83,7 +77,8 @@ public class HomeController extends HttpServlet {
 		if (action != null && action.equals("login")) {
 			CustomerModel cus =FormUtil.tModel(CustomerModel.class, request);
 			cus=customerService.findByUserNameandPasswordAndStatus(cus.getUsername(), cus.getPassword(), 1);
-	
+//			cus.getRole().setCode("ADMIN");
+//			cus.getRole().setName("ADMIN");
 			if (cus != null) {
 				// getSession bắt buộc phải có vì nó request tới trang khác(khác với forward)
 				// request.getSession().setAttribute("CUSTOMERMODEL", cus);

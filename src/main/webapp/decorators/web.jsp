@@ -11,6 +11,9 @@
     <link href="<c:url value='/template/web/bootstrap/css/bootstrap.min.css' />" rel="stylesheet" type="text/css" media="all"/>
     <link href="<c:url value='/template/web/css/style.css' />" rel="stylesheet" type="text/css" media="all"/>
     
+    <script type="text/javascript" src="<c:url value='/template/web/jquery/jquery.min.js' />"></script>
+    <script type="text/javascript" src="<c:url value='/template/web/bootstrap/js/bootstrap.bundle.min.js' />"></script>
+	
 </head>
 <body>
 	
@@ -27,9 +30,5 @@
 	<%@ include file="/common/web/footer.jsp" %>
 	<!-- footer -->
 	
-	<script type="text/javascript" src="<c:url value='/template/web/jquery/jquery.min.js' />"></script>
-    <script type="text/javascript" src="<c:url value='/template/web/bootstrap/js/bootstrap.bundle.min.js' />"></script>
-	
-
 </body>
 </html>

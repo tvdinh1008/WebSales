@@ -6,24 +6,41 @@ import javax.inject.Inject;
 
 import com.tvdinh.dao.ICustomerDAO;
 import com.tvdinh.model.CustomerModel;
+import com.tvdinh.paging.Pageble;
 import com.tvdinh.service.ICustomerService;
 
 public class CustomerService implements ICustomerService{
-
-	
 	@Inject
 	private ICustomerDAO customerDAO;
 	
 	@Override
 	public List<CustomerModel> findAll() {
-		// TODO Auto-generated method stub
 		return customerDAO.findAll();
 	}
 
 	@Override
 	public CustomerModel findByUserNameandPasswordAndStatus(String username, String password, Integer status) {
-		// TODO Auto-generated method stub
-		return null;
+		return customerDAO.findByUserNameandPasswordAndStatus(username, password, status);
+	}
+
+	@Override
+	public int getTotalItem() {
+		return customerDAO.getTotalItem();
+	}
+
+	@Override
+	public List<CustomerModel> findAll(Integer offset, Integer limit) {
+		return customerDAO.findAll(offset, limit);
+	}
+
+	@Override
+	public List<CustomerModel> findAll(Pageble pageble) {
+		return customerDAO.findAll(pageble);
+	}
+
+	@Override
+	public CustomerModel findOnde(Long id) {
+		return customerDAO.findOne(id);
 	}
 
 }

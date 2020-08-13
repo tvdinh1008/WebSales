@@ -15,14 +15,7 @@
 <!-- Custom styles for this template-->
 <link href="<c:url value='/template/admin/css/sb-admin.css' />"
 	rel="stylesheet" type="text/css" media="all" />
-
-</head>
-<body class="bg-dark">
-
-	<div class="container">
-		<dec:body />
-	</div>
-
+	
 	<!-- Bootstrap core JavaScript-->
 	<script type="text/javascript"
 		src="<c:url value='/template/admin/vendor/jquery/jquery.min.js' />"></script>
@@ -31,6 +24,15 @@
 	<!-- Core plugin JavaScript-->
 	<script type="text/javascript"
 		src="<c:url value='/template/admin/vendor/jquery-easing/jquery.easing.min.js' />"></script>
+	
+</head>
+<body class="bg-dark">
 
+	<div class="container">
+		<dec:body />
+	</div>
+
+	
+	
 </body>
 </html>

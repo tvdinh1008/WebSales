@@ -1,6 +1,6 @@
 package com.tvdinh.model;
 
-public class RoleModel extends AbstractModel{
+public class RoleModel extends AbstractModel<RoleModel>{
 	
 	private String name;
 	private String code;

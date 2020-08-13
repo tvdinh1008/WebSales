@@ -107,7 +107,7 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		} catch (SQLException | NullPointerException e) {
 			System.out.println(e.getMessage());
 		}
-		return null;
+		return results;
 	}
 
 	private void setParameter(PreparedStatement statement, Object... parameters) {
@@ -144,7 +144,29 @@ public class AbstractDAO<T> implements GenericDAO<T> {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-
 	}
+
+	@Override
+	public int count(String sql, Object... parameters) {
+		Connection con = null;
+		PreparedStatement statement = null;
+		ResultSet rs = null;
+		int count=0;
+		try {
+			con = getConnection();
+			statement = con.prepareStatement(sql);
+			setParameter(statement, parameters);
+			
+			rs = statement.executeQuery();
+			while(rs.next())
+			{
+				count=rs.getInt(1);// select count(*) from...
+			}	
+		} catch (SQLException | NullPointerException e) {
+			System.out.println(e.getMessage());
+		}
+		return count;
+	}
+	
 
 }

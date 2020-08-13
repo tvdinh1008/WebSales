@@ -1,6 +1,6 @@
 package com.tvdinh.model;
 
-public class CustomerModel extends AbstractModel {
+public class CustomerModel extends AbstractModel<CustomerModel> {
 	
 	private String name;
 	private String username;
