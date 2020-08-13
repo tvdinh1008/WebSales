@@ -30,6 +30,8 @@ FrontEnd
 		input type="hidden" value="" id="sortName" name="sortName"
 		
 		input type="hidden" value="" id="sortBy" name="sortBy"
+		
+		input type="hidden" value="list" id="type" name="type" //cái này thêm vào khi phân trang để nó phân biệt với edit trong TH sử dụng 1 controller
 	
 	Và trước khi submit cần put dữ liệu cho các thẻ input này ví dụ : $('#page').val(page);... sau đó $('#formSubmit').submit();
 	
