@@ -83,6 +83,10 @@ BackEnd
 	- Hiển thị danh sách sản phẩm: type=LIST
 	- Thêm, sửa sản phẩm( dựa vào id khi request nếu id=null->là thêm sản phẩm. Nếu id!=null ->query dữ liệu rồi binding vào trường trong view): type=EDIT
 	
+	value="${model.title}" thì nếu là thêm thì rõ ràng model.title=null thì là ô trống còn nếu là sửa thì có dữ liệu
+	
+	Khi còn nút submit sẽ dựa vào id nếu=null: ô sẽ là thêm sản phẩm, ngược lại là cập nhật sản phẩm
+	
 	Do thêm với sửa là 1 trang jsp => ta sẽ kiểm tra ở trong jsp nếu model!=null thì binding ngược lại không
 	
 	
