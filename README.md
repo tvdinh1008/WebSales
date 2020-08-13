@@ -21,12 +21,12 @@ FrontEnd
 	- Luồng chạy: khi request vào /admin-product?page=2&maxPageItem=20&sort=name,desc thì controller sẽ lấy dữ liệu xử lý và trả về cho view. Khi click vào 1 trang khác
 	thì form sẽ phải có page, maxPageItem, sortName, sortBy
 	<!-- chứa giá trị cho phân trang để truyền cho controller-->
-	<form ...?>
+	<form ...
 	        <input type="hidden" value="" id="page" name="page"
 		<input type="hidden" value="" id="maxPageItem" name="maxPageItem"
 		<input type="hidden" value="" id="sortName" name="sortName"
 		<input type="hidden" value="" id="sortBy" name="sortBy"
-	</form>
+	
 	Và trước khi submit cần put dữ liệu cho các thẻ input này ví dụ : $('#page').val(page);... sau đó $('#formSubmit').submit();
 	
 
