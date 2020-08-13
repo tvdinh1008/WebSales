@@ -22,9 +22,9 @@ FrontEnd
 BackEnd
 + Sử dụng mô hình 3 tier architecture
   
-  - Presentation layer->Hiện thực hóa băng MVC
+  - Presentation layer->Hiện thực hóa băng MVC// Controller chỉ xử lý :nhận dữ liệu từ client gửi về và đẩy dữ liệu ra ngoài cho view sử dụng
 
-  - Business Logic layer->Service
+  - Business Logic layer->Service : xử lý phần logic
   
   - Database layer->DAO
  
