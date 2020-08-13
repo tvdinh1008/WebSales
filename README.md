@@ -79,3 +79,14 @@ BackEnd
 
   - Mỗi một cookie sẽ thường tương ứng với một người dùng và bên trong từng file session này sẽ chứa các thông tin liên quan tới người dùng đó. Vừa rồi mình sử dụng từ thông thường là bởi vì một người dùng có thể sử dụng hai trình duyệt khác nhau như Firefox hay Chrome trên một máy để truy cập vào cùng một địa chỉ trang web. Lúc này sẽ có hai cookie trên hai trình duyệt (và do đó sẽ có 2 session được tạo ra trên server) cho cùng một người dùng.
 
++ Khi request vào url='/admin-product' tức vào controller: ProductController của package .admin thì nó sẽ chia ra làm một số kiểu(type)
+	- Hiển thị danh sách sản phẩm: type=LIST
+	- Thêm, sửa sản phẩm( dựa vào id khi request nếu id=null->là thêm sản phẩm. Nếu id!=null ->query dữ liệu rồi binding vào trường trong view): type=EDIT
+	
+	Do thêm với sửa là 1 trang jsp => ta sẽ kiểm tra ở trong jsp nếu model!=null thì binding ngược lại không
+	
+	
+	->Tránh đc tạo nhiều servlet vì thế khi request ta có thêm VD:url='/admin-product?type=list'
+	
+
+
