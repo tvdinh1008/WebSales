@@ -40,6 +40,7 @@ BackEnd
 + Sử dụng mô hình 3 tier architecture
   
   - Presentation layer->Hiện thực hóa băng MVC// Controller chỉ xử lý :nhận dữ liệu từ client gửi về và đẩy dữ liệu ra ngoài cho view sử dụng
+  	Controller: có @WebServlet(urlPatterns = {"/url"}) để nó nhận request vào
 
   - Business Logic layer->Service : xử lý phần logic
   
@@ -94,5 +95,9 @@ BackEnd
 	
 	->Tránh đc tạo nhiều servlet vì thế khi request ta có thêm VD:url='/admin-product?type=list'
 	
++ Restful api web service: => Sử dụng định dạng JSON(Javascript Object Notation) 
+	- Cung cấp API cho front end ko apply giao diện khi trả dữ liêu
+	- Http method: doGet, doPost, doPut, doDelete
+	- Cần thêm 1 package (tiện ích) là HttpUtil để convert từ json->String json và convert từ String json sang model
 
 
