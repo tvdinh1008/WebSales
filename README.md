@@ -98,6 +98,10 @@ BackEnd
 + Restful api web service: => Sử dụng định dạng JSON(Javascript Object Notation) 
 	- Cung cấp API cho front end ko apply giao diện khi trả dữ liêu
 	- Http method: doGet, doPost, doPut, doDelete
-	- Cần thêm 1 package (tiện ích) là HttpUtil để convert từ json->String json và convert từ String json sang model
+	- Cần thêm 1 package (tiện ích) là HttpUtil để convert từ json->String json và convert từ String json sang model.
+	- Cách đơn giản hơn ko cần package này ta sử dụng luôn
+	
+		ObjectMapper mapper=new ObjectMapper();
+		CustomerModel cus=mapper.readValue(request.getReader(), CustomerModel.class);//convert json->model
 
-
+	
