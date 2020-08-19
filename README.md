@@ -1,7 +1,7 @@
 # WebSales
 
 FrontEnd
-+ Sử dụng "sitemesh decorators"
++ Sử dụng "sitemesh decorators": cấu hình pom.xml, decorators.xml(cái này để apply file nào vào giao diện hoặc không),web.xml(lắng nghe url)
   
   Khi người dùng truy cập vào 1 url thì nó chia làm 3 loại
   
@@ -50,7 +50,7 @@ BackEnd
   
    ví dụ khi login ->có 2 trường là username, password thì nó sẽ mapp sang model là customerModel
 
-+ Sử dụng "servlet filter" để phân quyền. 
++ Sử dụng "servlet filter" để phân quyền: cấu hình trong file: web.xml
   
   - Authentication: đăng nhập với username, password kiểm tra xem trong database có tồn tại hay không
   
@@ -65,12 +65,12 @@ BackEnd
     cú pháp : ResourceBundle resourceBundle=ResourceBundle.getBundle("tên file");resourceBundle.getString("key");//lưu theo kiểu key-value
   
 + Sử dụng "weld" để hỗ trợ tầng trên gọi dịch vụ tầng dưới. Ví dụ bình thường ko sử dụng weld thì khi có 100000 request thì ở controller sẽ tạo 100000 đối tượng ->rất tốn tài nguyên hệ thống. Thay vì đó ta sử dụng weld để khi request tới controller nếu đối tượng đó chưa đc tạo thì nó sẽ tạo mới và lưu vào vùng container lần sau request tới thì nó sẽ không phải tạo mới
-  - sử dụng "weld" thông qua từ khóa
+	- sử dụng "weld" thông qua từ khóa
   
-      @Inject
-      
+      	    @Inject
 	    private "Tên-interface" "tên-biến";
-
+	    
+	- Weld cấu hình trong 3 file: pom.xml, beans.xml, web.xml(listener)
 
 + Cookie Là Gì
   - Theo định nghĩa thì cookie là một mẩu thông tin nhỏ được lưu trừ trên trình duyệt người dùng. Đây là một file nhỏ được trình duyệt lưu trữ trên máy tính của bạn. Trên cùng một trình duyệt mỗi một domain khác nhau sẽ có một cookie khác nhau. Ở đây một domain giống như một khách sạn ở ví dụ trên.
@@ -95,7 +95,7 @@ BackEnd
 	
 	->Tránh đc tạo nhiều servlet vì thế khi request ta có thêm VD:url='/admin-product?type=list'
 	
-+ Restful api web service: => Sử dụng định dạng JSON(Javascript Object Notation) 
++ Restful api web service: => Sử dụng định dạng JSON(Javascript Object Notation): cấu hình trong file: pom.xml
 	- Cung cấp API cho front end ko apply giao diện khi trả dữ liêu
 	- Http method: doGet, doPost, doPut, doDelete
 	- Cần thêm 1 package (tiện ích) là HttpUtil để convert từ json->String json và convert từ String json sang model.
